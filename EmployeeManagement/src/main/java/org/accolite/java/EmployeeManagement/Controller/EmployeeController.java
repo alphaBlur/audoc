@@ -1,6 +1,7 @@
 package org.accolite.java.EmployeeManagement.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ws.rs.Consumes;
 //import javax.ws.rs.FormParam;
@@ -70,12 +71,10 @@ public class EmployeeController {
 	@Consumes({"application/xml", "application/json"})
 	@Path("add")
 	public String insertEmployee(Employee employee) {
-		for(Employee e:service.getAllEmployee()) {
-			if(e.getEmployeeId()==employee.getEmployeeId()) {
-				return "Employee ID exists already";
-			}
+		Optional<Employee> matchingEmployee= service.getAllEmployee().stream().filter(p ->p.getEmployeeId()==employee.getEmployeeId()).findFirst();
+		if(matchingEmployee.isPresent()) {
+			return "Employee exists already with same ID";
 		}
-		System.out.println("inserting a new employee");
 		return service.insert(employee);
 	}
 	
@@ -88,15 +87,17 @@ public class EmployeeController {
 		return service.update(id, name);
 	}
 	
+	
+	
+	// USING STREAM API
 	//By send data in raw
 	@POST
 	@Path("update")
 	@Consumes({"application/xml", "application/json"})
 	public String updateEmployee2(Employee em){
-		for(Employee e:service.getAllEmployee()) {
-			if(e.getEmployeeId()==em.getEmployeeId()) {
+		Optional<Employee> matchingEmployee= service.getAllEmployee().stream().filter(p ->p.getEmployeeId()==em.getEmployeeId()).findFirst();
+		if(matchingEmployee.isPresent()) {
 				return service.update2(em);
-			}
 		}
 		return "Employee ID does not exists";
 	}

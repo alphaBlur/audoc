@@ -33,7 +33,7 @@ public class EmployeeManagementService {
 
 	public String insert(Employee employee) {
 		employeeList.add(employee);
-		return "New employee added successfully with salary: "+employee.getEmployeeId();
+		return "New employee added successfully with ID: "+employee.getEmployeeId();
 	}
 	
 	public String update(int id, String name) {
