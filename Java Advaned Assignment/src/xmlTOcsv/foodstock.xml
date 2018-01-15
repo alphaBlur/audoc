@@ -1,0 +1,27 @@
+<foodstock>
+	<item id="1">
+	    <name>Chips</name>
+	    <price>20</price>
+	    <quantity>500</quantity>
+	</item>
+	<item id="2">
+	    <name>Butter</name>
+	    <price>80</price>
+	    <quantity>300</quantity>
+	</item>
+	<item id="3">
+	    <name>Pickles</name>
+	    <price>50</price>
+	    <quantity>140</quantity>
+	</item>
+	<item id="4">
+	    <name>Biscuits</name>
+	    <price>10</price>
+	    <quantity>800</quantity>
+	</item>
+	<item id="5">
+	    <name>Noodles</name>
+	    <price>45</price>
+	    <quantity>340</quantity>
+	</item>
+</foodstock>

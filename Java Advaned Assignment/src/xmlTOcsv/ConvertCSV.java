@@ -14,8 +14,8 @@ import org.w3c.dom.Document;
 public class ConvertCSV {
 
     public static void main(String args[]) throws Exception {
-        File stylesheet = new File("C://Users//nishant.kaushik//eclipse-workspace//Java Advaned Assignment//src//xmlTOcsv//style.xsl");
-        File xmlSource = new File("C://Users//nishant.kaushik//eclipse-workspace//Java Advaned Assignment//src//xmlTOcsv//student.xml");
+        File stylesheet = new File("C://Users//nishant.kaushik//eclipse-workspace//Java Advaned Assignment//src//xmlTOcsv//foodstyle.xsl");
+        File xmlSource = new File("C://Users//nishant.kaushik//eclipse-workspace//Java Advaned Assignment//src//xmlTOcsv//foodstock.xml");
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -25,7 +25,7 @@ public class ConvertCSV {
         Transformer transformer = TransformerFactory.newInstance()
                 .newTransformer(stylesource);
         Source source = new DOMSource(document);
-        Result outputTarget = new StreamResult(new File("C://Users//nishant.kaushik//eclipse-workspace//Java Advaned Assignment//src//xmlTOcsv//student.csv"));
+        Result outputTarget = new StreamResult(new File("C://Users//nishant.kaushik//eclipse-workspace//Java Advaned Assignment//src//xmlTOcsv//foodstock.csv"));
         transformer.transform(source, outputTarget);
     }
 }
