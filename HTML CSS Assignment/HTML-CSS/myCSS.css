@@ -1,0 +1,188 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat';
+}
+img {
+	border-radius: 50%;
+}
+header {
+	background-color: #2F3A3E;
+	color:white;	
+	display:inline-flex;
+	margin-bottom:20px;
+	width:100%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#subHead{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:50px;
+  margin:40px 10px 5px 10px;
+}
+header h4{
+	font-weight: 300;
+}
+#userImage{
+	height: 100%;
+  margin: 10px 0 10px 90px;
+}
+#userImage img{	
+	width: 250px;
+}
+#topText{
+	margin: 5px 10px 0px 5px;
+	width:900px;
+}
+#topText{
+	margin: 5px 10px 0px 5px;
+	width:900px;
+}
+.heading {
+	margin: 10px 20px 10px 5px ;
+}
+.general {
+	width:30%;
+}
+.work-related {
+	width:50%;
+}
+.main-body {
+	display:inline-flex;
+}
+.skills img {
+	width: 50px;
+	height: 50px;
+}
+.skills div {
+	display:inline-flex;
+}
+.contact h3{
+	background: #f8991b;
+	width: 80%;
+	padding: 10px 20px;
+	color: white;
+}
+.address{
+	padding-left: 20px;
+	color: #81c242;
+}
+.dob{
+	padding-left: 20px;
+	color: #f1585a;
+}
+.mail{
+	padding-left: 20px;
+	color: #f7991d;
+}
+.web{
+	padding-left: 20px;
+	color: #81c242;
+}
+.contact p{
+	margin-top: -18px;
+	margin-bottom: 25px;
+	padding-left: 20px;
+}
+.about-me h3{
+	background: #f1585a;
+	width: 80%;
+	padding: 10px 20px;
+	color: white;
+}
+.about-me p{
+	padding: 0 60px 0 20px;
+	font-weight: 300;
+}
+.hobbies h3{
+	background: #81c242;
+	width: 80%;
+	padding: 10px 20px;
+	color: white;
+}
+.work-experience h3{
+	background: #81c242;
+	width: 133%;
+	padding: 10px 20px;
+	color: white;
+}
+.year{
+	float: left;
+	clear: left;
+	font-weight: bold;
+	padding: 10px 20px;
+}
+.year_lorem{
+	float: left;
+	padding: 10px;
+}
+.skills{
+	clear: both;
+	margin-top: 20px;
+	width:168%;
+}
+.skills h3{
+	background: #82cee5;
+	width: 80%;
+	padding: 10px 20px;
+	color: white;
+}
+.language h3{
+	background: #f7991d;
+	width: 133%;
+	padding: 10px 20px;
+	color: white;
+}
+.education h3{
+	background: #f1585a;
+	width: 175%;
+	padding: 10px 20px;
+	color: white;
+}
+#l1{
+	color:white;
+	background-color:red;
+	width:100px;
+	margin: 100px 5px 100px 50px;
+	padding: 3px 6px;
+}
+
+#l2{
+	color:white;
+	background-color:lightblue;
+	width:100px;
+	margin: 100px 5px 100px 50px;
+	padding: 3px 6px;;
+}
+#l3{
+	color:white;
+	background-color:#81c242;
+	width:100px;
+	margin: 100px 5px 100px 50px;
+	padding: 3px 6px;;
+}
+#ll1{
+	color:white;
+	background-color:red;
+	width:100px;
+	margin: 100px 5px 100px 5px;
+	padding: 3px 6px;
+}
+
+#ll2{
+	color:white;
+	background-color:lightblue;
+	width:100px;
+	margin: 100px 5px 100px 5px;
+	padding: 3px 6px;
+}
+
+#ll3{
+	color:white;
+	background-color:#81c242;
+	width:100px;
+	margin: 100px 5px 100px 5px;
+	padding: 3px 6px;
+}
+footer{
+	background-color:lightblue;
+}

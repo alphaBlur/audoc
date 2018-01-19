@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Assignment</title>
+		<script src="../JavaScript/assignment.js"></script>
+		<link rel="stylesheet" type="text/css" href="../CSS/assignment.css">
+	</head>
+	<body>
+		<input style="display:inline" type="checkbox" id="checker" onclick="checkBoxChanged()" checked></input>
+		<span id="header">Click for number accepting mode</span>
+		<br>
+		<br>
+		<div id="nameAccepting">
+		Name and age accepting mode
+		<br>
+		<br>
+		<div id="genders">
+		<input type="radio" id="male" name="input2" value="Male"> Male <br>
+		<input type="radio" id="female" name="input2" value="Female"> Female <br>
+		</div>
+		<br><br>
+		Age:<input type="text" id="age"><br><br>
+		<br><br>
+		Name:<input type="text" id="name"><br><br><h3 id="error"></h3><br><br>
+		<input type="button" value="Submit" onclick="addToTable()">
+		<br><br><br>
+		<table id="list" cellpadding="10">
+		</table>
+		</div>
+		
+		<div style="display:none" id="numberAccepting">
+		Number accepting mode
+		<br><br>
+		<input type="text" id="input">
+		<br><br>
+		<input type="button" value="Analyze" onclick="analyzeInput()">
+		<br>
+		<p id="result"></p>
+		</div>
+	</body>
+</html>

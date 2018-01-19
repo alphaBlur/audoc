@@ -1,0 +1,16 @@
+table {
+    border-collapse: collapse;
+	background-color: yellow;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
