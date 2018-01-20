@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/nishant.kaushik/Downloads/eclipse-java-oxygen-2-win32-x86_64/eclipse/plugins/org.junit.jupiter.api_5.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nishant.kaushik/Downloads/mockito-all-1.9.5-sources.jar/mockito-all-1.9.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nishant.kaushik/Downloads/powermock-mockito-1.4.8-full.jar/powermock-mockito-1.4.8-full.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nishant.kaushik/Downloads/javax.persistence.jar/javax.persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nishant.kaushik/Downloads/drive-download-20180115T071936Z-001/log4j-api-2.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nishant.kaushik/Downloads/drive-download-20180115T071936Z-001/log4j-core-2.10.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
