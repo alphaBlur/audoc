@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+		body {
+		  background: #623230;
+		  padding: 50px 0 0;
+		  font-family: Arial, Helvetica;
+		  font-size: 80%;
+		}
+		h1{
+		  margin-bottom: 8px;
+		  color: #127698;
+		}
+		p {
+		  color: #218099;
+		  font-size: 1.4em;
+		  margin-bottom: 15px;
+		  line-height: 1.4;
+		}
+		.container {
+		  width: 100%;
+		  background: #eedd82;
+		  padding: 15px 15px;
+		  margin: 0 auto;
+		  position: relative;
+		  overflow: hidden;
+		  border-radius: 5px;
+		}
+  </style>
+  
+  <title>The Mad-Libs Maker</title>
+ </head>
+<body style="display:none">
+  <div class="container">
+  <h1>The Mad-Libs Maker</h1>
+  <script>
+	var name = prompt('Enter your name:'),
+	    name2 = prompt('Enter another name '),
+	    time = prompt('Enter a time'),
+	    noun = prompt('Enter a noun'),
+	    word = prompt('Enter any word '),
+	    verb = prompt('Enter a verb'),
+	    place = prompt('Enter a place');
+	alert('Click OK to get your mad-lib');
+	 document.body.style.display = "block";
+	 var input= "In an old house in place that was covered with noun <br/>"+
+					"lived name in two straight word.<br/>"+
+					"<br/>"+
+					"In two straight lines they broke their bread<br/> "+
+					"and brushed their teeth<br/> "+
+					"and went to place.<br/> "+
+					"<br/> "+
+					"They verb at the good<br/> "+
+					"and verb at the bad<br/> "+
+					"and sometimes<br/> "+
+					"they were very sad.<br/> "+
+					"<br/> "+
+					"They left the house <br/> "+
+					"at half past nine	<br/> "+
+					"in two straight lines <br/> "+
+					"in rain	<br/> "+
+					"<br/> "+
+					"or shine- <br/> "+
+					"<br/> "+
+					"the smallest one<br/> "+
+					"was name2. <br/> "+
+					"name was not afraid <br/> "+
+					"of mice-<br/> "+
+					"she loved winter,<br/> "+
+					"snow, and ice.<br/> "+
+					"<br/> "+
+					"To the name in the zoo<br/> "+
+					"name just said,<br/> "+
+					"Pooh-pooh,<br/>";
+		 
+		name="<div style='display:inline-block;"+"color:blue"+";'>"+name +"</div>";
+		noun="<div style='display:inline-block;"+"color:blue"+";'>"+noun +"</div>";
+		verb="<div style='display:inline-block;"+"color:blue"+";'>"+verb +"</div>";
+		name2="<div style='display:inline-block;"+"color:blue"+";'>"+name2 +"</div>";
+		time="<div style='display:inline-block;"+"color:blue"+";'>"+time +"</div>";
+		place="<div style='display:inline-block;"+"color:blue"+";'>"+place +"</div>";
+		verb="<div style='display:inline-block;"+"color:blue"+";'>"+verb +"</div>";
+		
+		input = input.replace(/\bname\b/g,name);
+		input = input.replace(/\bname2\b/g,name2);
+		input = input.replace(/\bplace\b/g,place);
+		input = input.replace(/\bverb\b/g,verb);
+		input = input.replace(/\btime\b/g,time);
+		input = input.replace(/\bnoun\b/g,noun);
+		input = input.replace(/\bword\b/g,word);
+		document.write(input);
+	</script>
+	  </div>
+</body>
+</html>

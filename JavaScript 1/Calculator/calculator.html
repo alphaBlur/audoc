@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>Calculator - Assignment</title>
+		<style>
+			body {
+				background-color: #000;
+			}
+
+			body div.mycalc {
+				text-align: center;
+				width: 214px;
+				margin: 0 auto;
+			}
+
+			div input[type='button'], button {
+				width: 50px;
+				height: 50px;
+				margin: 2px 0;
+			}
+
+			div input[type="text"] {
+				height: 50px;
+				width: 100%;
+				background-color: #999;
+				color: #fff;
+				padding: 12px 20px;
+				margin-bottom: 4px;
+				box-sizing: border-box;
+				border-radius: 4px;
+				border: 1px solid #777;
+			}
+
+			div.results input, div.results button {
+				height: 50px;
+				width: 104px;
+			}
+
+			div.results button {
+				background-color: red;
+				color: #fff;
+				border: 1px solid red;
+			}
+
+			div.results input {
+				background-color: #fd7202;
+				color: #fff;
+				border: 1px solid #fd7202;
+			}
+
+			#plus, #minus, #by, #divide, #percent {
+				background-color: green;
+				color: #fff;
+				border: 1px solid green;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="mycalc">
+	<form style="margin-top:100px;" name="calculator" id="calculator">
+		<input type="text" name="inputwindow" id="inputwindow">
+		<input style="color:black;" type="text" name="tempRes" id="tempRes">
+		<div>
+			<input type="button" id="one" value="1" onclick="getNum(document.getElementById('one').value)">
+			<input type="button" id="two" value="2" onclick="getNum(document.getElementById('two').value)">
+			<input type="button" id="three" value="3" onclick="getNum(document.getElementById('three').value)">
+			<input type="button" id="plus" value="+" onclick="getSign(document.getElementById('plus').value)">
+	    </div>
+	    <div>
+			<input type="button" id="four" value="4" onclick="getNum(document.getElementById('four').value)">
+			<input type="button" id="five" value="5" onclick="getNum(document.getElementById('five').value)">
+			<input type="button" id="six" value="6" onclick="getNum(document.getElementById('six').value)">
+			<input type="button" id="minus" value="-" onclick="getSign(document.getElementById('minus').value)">
+		</div>
+		<div>
+			<input type="button" id="seven" value="7" onclick="getNum(document.getElementById('seven').value)">
+			<input type="button" id="eight" value="8" onclick="getNum(document.getElementById('eight').value)">
+			<input type="button" id="nine" value="9" onclick="getNum(document.getElementById('nine').value)">
+			<input type="button" id="by" value="*" onclick="getSign(document.getElementById('by').value)">
+	    </div>
+	    <div>
+			<input type="button" id="zero" value="0" onclick="getNum(document.getElementById('zero').value)">
+			<input type="button" id="decimal" value="." onclick="getNum(document.getElementById('decimal').value)">
+			<input type="button" id="divide" value="/" onclick="getNum(document.getElementById('divide').value)">
+			<input type="button" id="percent" value="%" onclick="getNum(document.getElementById('percent').value)">	
+	    </div>
+	    <div class="results">
+			<input type="button" id="equal" value="=" onclick="calculateResult()">
+			<button type="button" id="clear" value="" onclick="clearInput(document.getElementById('clear').value)">Clear</button>
+	    </div>
+	</form>	
+    </div>
+	</body>
+	<script>
+		var res = 0;
+		function getNum(x) {
+			document.getElementById('inputwindow').value += x;
+		}
+		
+		function getSign(x) {
+			res++;
+			if(res==2)
+				calculateTempResult();
+			document.getElementById('inputwindow').value += x;
+		}
+		
+		function calculateTempResult() {
+			try{
+			var result = eval(document.getElementById('inputwindow').value);
+			}
+			catch(e){
+				alert(e);
+			}
+			document.getElementById('tempRes').value = result;
+			res--;
+		}
+		
+		function clearInput(y) {
+			document.getElementById('inputwindow').value = y;
+		}
+
+		function calculateResult() {
+			try{
+			var result = eval(document.getElementById('inputwindow').value);
+			}
+			catch(e){
+				alert(e);
+			}
+			document.getElementById('inputwindow').value = result;
+			document.getElementById('tempRes').value ='';
+		}
+	</script>
+</html>
