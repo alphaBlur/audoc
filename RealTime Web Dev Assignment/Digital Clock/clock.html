@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>DIGI-CLOCK</title>
+	<style>
+		input{
+			width:50px;
+			text-align:center;
+		}
+	</style>
+</head>
+	<body>
+		<br>
+		<label for="time">DIGITAL CLOCK</label>
+		<br><br><hr><br>
+		<!-- This is actual clock running -->
+		<span id="mydate"></span>
+		<!-- These are the boxes to change the clock -->
+		<input type="text" maxlength="2" id="dd" class="twochar">-<input type="text" maxlength="2" id="MM" class="twochar">-<input type="text" maxlength="4" id="yy" class="twochar">
+		<input type="text" maxlength="2" id="hh" class="twochar">:<input type="text" maxlength="2" id="mm" class="twochar">:<input type="text" maxlength="2" id="ss" class="twochar">
+		<br><br><br>
+		<!-- These are the buttons -->
+		<form id="saveBut"><input style="width:100px;height:50px" type="submit" id="save" value="SAVE"></form>
+		<form id="resetBut"><input style="width:100px;height:50px" type="submit" id="reset" value="RESET"></form>
+		<br><br><hr><br>
+	</body>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+		var socket = io.connect();
+		var $reset = $('#resetBut');
+		var $save = $('#saveBut');
+		
+		socket.on('update time',function(data){
+			document.getElementById("mydate").innerHTML = data;
+		});
+		
+		$save.submit(function(e){
+			e.preventDefault();
+			var times = [];
+			times.push(document.getElementById("dd").value);
+			times.push(document.getElementById("MM").value);
+			times.push(document.getElementById("yy").value);
+			times.push(document.getElementById("hh").value);
+			times.push(document.getElementById("mm").value);
+			times.push(document.getElementById("ss").value);
+			console.log(times[1] + '-' + times[0] +'-'+ times[2] + ' ' + times[3] + ':'+ times[4] +':'+ times[5]);
+			socket.emit('new time', times[1] + '-' + times[0] +'-'+ times[2] + ' ' + times[3] + ':'+ times[4] +':'+ times[5]);
+		});
+		function runClock(){
+				var date = new Date(document.getElementById("mydate").innerHTML);
+				date.setSeconds(date.getSeconds()+1);
+				document.getElementById("mydate").innerHTML=date;
+				
+		}
+		resetTime();
+		setInterval(function(){ runClock() }, 1000);
+		function resetTime(){
+			var date = new Date();
+			document.getElementById("mydate").innerHTML = date;
+		}
+		$reset.submit(function(e){
+			e.preventDefault();
+			resetTime();
+		});
+		
+		
+		function checkTime(i) {
+			if (i < 10) {
+				i = "0" + i;
+			}
+			return i;
+		}
+	</script>
+</html>
