@@ -1,0 +1,169 @@
+<html>
+<head>
+<style>
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		ul li {
+			cursor: pointer;
+			position: relative;
+			padding: 12px 8px 12px 40px;
+			background: #eee;
+			font-size: 18px;
+		}
+		ul li:nth-child(odd) {
+			background: #f9f9f9;
+		}
+		ul li:hover {
+			background: #ddd;
+		}
+		ul.checked {
+		  text-decoration: line-through;
+		}
+		.header {
+			background-color: #bbb;
+			padding: 10px 10px;
+			color: white;
+			text-align: center;
+			width:100%;
+		}
+
+		/* Clear floats after the header */
+		.header:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		/* Style the input */
+		input {
+			width: 100px;
+			padding: 10px;
+			margin: 0px 50px;
+		}
+		button {
+			padding: 5px;
+			
+			background: #d9d9d9;
+			color: #555;
+			
+			text-align: center;
+			
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #bbb;
+		}
+</style>
+</head>
+
+<body>
+	<div id="myDIV" class="header">
+		<h2>To Do List App</h2>
+	</div>
+    <div class="container">
+      <p>
+        <label for="new-task">Add tasks</label><input id="new-task" type="text"><button>Add</button>
+      </p>
+      <h3>Incomplete tasks</h3><h5>(check when completed)</h5>
+      <ul id="incomplete-tasks"></ul>
+	  <br><br>
+      <h3>Completed Tasks</h3><h5>(check if incomplete)</h5>
+      <ul id="completed-tasks" class="checked">
+      </ul>
+	   </div>
+</body>
+<script>
+var taskInput = document.getElementById("new-task");
+var addButton = document.getElementsByTagName("button")[0];
+var incompleteTasksHolder = document.getElementById("incomplete-tasks");
+var completedTasksHolder = document.getElementById("completed-tasks");
+var createNewTaskElement = function(taskString) {
+  var listItem = document.createElement("li");
+  var checkBox = document.createElement("input"); // checkbox
+  var label = document.createElement("label");
+  var editInput = document.createElement("input"); // text
+  var editButton = document.createElement("button");
+  var deleteButton = document.createElement("button");
+    
+  checkBox.type = "checkbox";
+  editInput.type = "text";
+  
+  editButton.innerText = "Edit";
+  editButton.className = "edit";
+  deleteButton.innerText = "Delete";
+  deleteButton.className = "delete";
+  
+  label.innerText = taskString;
+  
+  listItem.appendChild(checkBox);
+  listItem.appendChild(label);
+  listItem.appendChild(editInput);
+  listItem.appendChild(editButton);
+  listItem.appendChild(deleteButton);
+  return listItem;
+}
+var addTask = function() {
+  var listItem = createNewTaskElement(taskInput.value);
+  incompleteTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskCompleted);  
+  taskInput.value = "";   
+}
+var showContents=function(){
+document.getElementById("div1").style.visibility="visible";
+};
+
+var editTask = function() {
+  var listItem = this.parentNode;
+  var editInput = listItem.querySelector("input[type=text]")
+  var label = listItem.querySelector("label");
+  var containsClass = listItem.classList.contains("editMode");
+  if(containsClass) {
+    label.innerText = editInput.value;
+  } else {
+    editInput.value = label.innerText;
+  }
+  listItem.classList.toggle("editMode");
+}
+var deleteTask = function() {
+  var listItem = this.parentNode;
+  var ul = listItem.parentNode;
+    ul.removeChild(listItem);
+}
+var taskCompleted = function() {
+  var listItem = this.parentNode;
+  completedTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskIncomplete);
+}
+var taskIncomplete = function() {
+  var listItem = this.parentNode;
+  incompleteTasksHolder.appendChild(listItem);
+  bindTaskEvents(listItem, taskCompleted);
+}
+var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
+  var checkBox = taskListItem.querySelector("input[type=checkbox]");
+  var editButton = taskListItem.querySelector("button.edit");
+  var deleteButton = taskListItem.querySelector("button.delete");
+  
+  editButton.onclick = editTask;
+  
+  deleteButton.onclick = deleteTask;
+  
+  checkBox.onchange = checkBoxEventHandler;
+}
+var ajaxRequest = function() {
+}
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
+time_btn.addEventListener("click",showContents);
+for(var i = 0; i <  incompleteTasksHolder.children.length; i++) {
+  bindTaskEvents(incompleteTasksHolder.children[i], taskCompleted);
+}
+for(var i = 0; i <  completedTasksHolder.children.length; i++) {
+  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete); 
+}
+	</script>
+
+</body>
+</html>
